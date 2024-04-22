@@ -13,7 +13,9 @@ export default function Navbar({ pages }: { pages: Page[] }) {
 		<nav className="navbar">
 			<ul>
 				{pages.map(({ name, url }) => (
-					<Link href={url}>{name}</Link>
+					<li key={name}>
+						<Link href={url}>{name}</Link>
+					</li>
 				))}
 			</ul>
 		</nav>

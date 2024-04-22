@@ -1,10 +1,11 @@
-import { redirect } from 'next/navigation';
-import { getSession, login, logout } from '../lib';
-import type { Metadata } from 'next';
+import { redirect } from "next/navigation";
+import { getSession } from "../lib";
+import type { Metadata } from "next";
+import Navbar from "../_components/navbar";
 
 export const metadata: Metadata = {
-	title: 'Profile',
-	description: 'This is the profile page, I forgot what this did',
+	title: "Profile",
+	description: "This is the profile page",
 };
 
 export default async function Profile() {
@@ -12,18 +13,27 @@ export default async function Profile() {
 	if (session) {
 		const { name, email, password } = session.user;
 		return (
-			<section>
-				<dl>
-					<dt>Name:</dt>
-					<dd>{name}</dd>
-					<dt>Email:</dt>
-					<dd>{email}</dd>
-					<dt>Password:</dt>
-					<dd>{password}</dd>
-				</dl>
-			</section>
+			<>
+				<Navbar
+					pages={[
+						{ name: "Home", url: "/home" },
+						{ name: "Login", url: "/login" },
+						{ name: "Profile", url: "/profile" },
+					]}
+				/>
+				<section>
+					<dl>
+						<dt>Name:</dt>
+						<dd>{name}</dd>
+						<dt>Email:</dt>
+						<dd>{email}</dd>
+						<dt>Password:</dt>
+						<dd>{password}</dd>
+					</dl>
+				</section>
+			</>
 		);
 	} else {
-		redirect('../');
+		redirect("../login");
 	}
 }

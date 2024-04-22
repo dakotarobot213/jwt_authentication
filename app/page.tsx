@@ -1,10 +1,12 @@
 import { redirect } from "next/navigation";
 import { getSession, login, logout } from "./lib";
+import Navbar from "./_components/navbar";
 
 export default async function Home() {
 	const session = await getSession();
 	return (
 		<section>
+			<Navbar pages={[{ url: "./login", name: "login" }]} />
 			<form
 				action={async (formdata) => {
 					"use server";
