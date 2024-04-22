@@ -4,43 +4,22 @@ import Navbar from "./_components/navbar";
 
 export default async function Home() {
 	const session = await getSession();
-	return (
-		<section>
-			<Navbar pages={[{ url: "./login", name: "login" }]} />
-			<form
-				action={async (formdata) => {
-					"use server";
-					await login(formdata);
-					redirect("/");
-				}}
-			>
-				<input
-					type="email"
-					name="email"
-					id="email"
-				/>
-				<input
-					type="password"
-					name="password"
-					id="password"
-				/>
-				<input
-					type="submit"
-					name="submit"
-					id="submit"
-				/>
-			</form>
-
-			<form
-				action={async (formdata) => {
-					"use server";
-					await logout();
-					redirect("/");
-				}}
-			>
-				<button type="submit">Logout</button>
-				<pre>{session ? JSON.stringify(session, null, 2) : "No JWT detected"}</pre>
-			</form>
-		</section>
-	);
+	if (session) {
+		return (
+			<>
+				<section>
+					<Navbar
+						pages={[
+							{ name: "Home", url: "/" },
+							{ name: "Login", url: "/login" },
+							{ name: "Profile", url: "/profile" },
+						]}
+					/>
+					<pre>{session ? JSON.stringify(session, null, 2) : "No JWT detected"}</pre>
+				</section>
+			</>
+		);
+	} else {
+		redirect("/login");
+	}
 }

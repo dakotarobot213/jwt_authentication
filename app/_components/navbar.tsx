@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import styles from "./navbar.module.scss";
 
 type Page = {
 	name: string;
@@ -10,7 +11,7 @@ type Page = {
 
 export default function Navbar({ pages }: { pages: Page[] }) {
 	return (
-		<nav className="navbar">
+		<nav className={styles.navbar}>
 			<ul>
 				{pages.map(({ name, url }) => (
 					<li key={name}>

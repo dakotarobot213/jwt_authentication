@@ -1,0 +1,21 @@
+.navbar {
+	& ul {
+		// Main changes
+		display: flex;
+		// Positioning
+		direction: column;
+		justify-content: space-around;
+		// Disable list markers
+		list-style-type: none;
+		& li {
+			width: 30%;
+			justify-content: center;
+			a {
+				justify-content: center;
+				display: flex;
+				text-align: center;
+				background-color: green;
+			}
+		}
+	}
+}
