@@ -1,8 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JWT Authentication Project
 
-## Getting Started
+This is a project developed to learn and develop skills in utilizing <abbr title="JSON Web Tokens">JWTs</abbr> for web logins.
 
-First, run the development server:
+## Authors
+
+-   [dakotarobot213](https://github.com/dakotarobot213)
+
+## Installation
+
+> Before starting the server, please consider configuring [a `.env` file](#environment-variables)
+
+Before attempting to start the project, please run `npm i` to install dependencies.
+
+## Running
+
+To start the development version of the project server you must enter one of the following into the terminal:
 
 ```bash
 npm run dev
@@ -16,21 +28,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+While the project has fallbacks for these variables, for proper understanding and security it is recommend you should initialize these environmental variables in a root level
+`.env`
 
-## Learn More
+-   `NAME` : Just a display name
+-   `EMAIL` : Used to login
+-   `PASSWORD` : Used to login
+-   `TIMEOUT_SEC` : How long the JWT should last in seconds
+-   `SECRET_KEY` : Used to encrypt transmissions, should be scrambled garbage for best effect.
 
-To learn more about Next.js, take a look at the following resources:
+## Acknowledgements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   [next](https://nextjs.org/)
+-   [jose](https://github.com/panva/jose)
+-   [react](https://react.dev/)
+    -   [react-dom](https://www.npmjs.com/package/react-dom)
